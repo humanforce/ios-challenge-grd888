@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Humanforce_iOS_Coding_ChallengeApp: App {
+    @StateObject private var viewModel = CurrentWeatherViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CurrentWeatherView()
+                .environmentObject(viewModel)
         }
     }
 }
