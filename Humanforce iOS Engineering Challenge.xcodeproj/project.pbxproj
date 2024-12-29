@@ -23,6 +23,13 @@
 			remoteGlobalIDString = A5C4330A2D20E29000EB49AF;
 			remoteInfo = HFWeatherWidgetExtension;
 		};
+		A5C433A42D218DF300EB49AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73B327F32CFD284C00D47D03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73B327FA2CFD284C00D47D03;
+			remoteInfo = "Humanforce iOS Engineering Challenge";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +67,7 @@
 		A5C4330F2D20E29000EB49AF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A5C433212D212FBC00EB49AF /* Humanforce iOS Engineering Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Humanforce iOS Engineering Challenge.entitlements"; sourceTree = "<group>"; };
 		A5C433222D21302400EB49AF /* HFWeatherWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HFWeatherWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A5C433A02D218DF300EB49AF /* HumanForceChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HumanForceChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -106,6 +114,11 @@
 			path = HFWeatherWidget;
 			sourceTree = "<group>";
 		};
+		A5C433A12D218DF300EB49AF /* HumanForceChallengeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HumanForceChallengeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +138,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C4339D2D218DF300EB49AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +155,7 @@
 				A5C433212D212FBC00EB49AF /* Humanforce iOS Engineering Challenge.entitlements */,
 				73B327FD2CFD284C00D47D03 /* Humanforce iOS Coding Challenge */,
 				A5C433112D20E29000EB49AF /* HFWeatherWidget */,
+				A5C433A12D218DF300EB49AF /* HumanForceChallengeTests */,
 				A5C4330C2D20E29000EB49AF /* Frameworks */,
 				73B327FC2CFD284C00D47D03 /* Products */,
 				73B3280E2CFD538100D47D03 /* .env.example */,
@@ -148,6 +169,7 @@
 			children = (
 				73B327FB2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge.app */,
 				A5C4330B2D20E29000EB49AF /* HFWeatherWidgetExtension.appex */,
+				A5C433A02D218DF300EB49AF /* HumanForceChallengeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +233,29 @@
 			productReference = A5C4330B2D20E29000EB49AF /* HFWeatherWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		A5C4339F2D218DF300EB49AF /* HumanForceChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5C433A62D218DF300EB49AF /* Build configuration list for PBXNativeTarget "HumanForceChallengeTests" */;
+			buildPhases = (
+				A5C4339C2D218DF300EB49AF /* Sources */,
+				A5C4339D2D218DF300EB49AF /* Frameworks */,
+				A5C4339E2D218DF300EB49AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5C433A52D218DF300EB49AF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A5C433A12D218DF300EB49AF /* HumanForceChallengeTests */,
+			);
+			name = HumanForceChallengeTests;
+			packageProductDependencies = (
+			);
+			productName = HumanForceChallengeTests;
+			productReference = A5C433A02D218DF300EB49AF /* HumanForceChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,6 +271,10 @@
 					};
 					A5C4330A2D20E29000EB49AF = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					A5C4339F2D218DF300EB49AF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 73B327FA2CFD284C00D47D03;
 					};
 				};
 			};
@@ -245,6 +294,7 @@
 			targets = (
 				73B327FA2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge */,
 				A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */,
+				A5C4339F2D218DF300EB49AF /* HumanForceChallengeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +310,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A5C433092D20E29000EB49AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5C4339E2D218DF300EB49AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,6 +340,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C4339C2D218DF300EB49AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -290,6 +354,11 @@
 			isa = PBXTargetDependency;
 			target = A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */;
 			targetProxy = A5C433192D20E29200EB49AF /* PBXContainerItemProxy */;
+		};
+		A5C433A52D218DF300EB49AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73B327FA2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge */;
+			targetProxy = A5C433A42D218DF300EB49AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -543,6 +612,44 @@
 			};
 			name = Release;
 		};
+		A5C433A72D218DF300EB49AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge.HumanForceChallengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Humanforce iOS Engineering Challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Humanforce iOS Engineering Challenge";
+			};
+			name = Debug;
+		};
+		A5C433A82D218DF300EB49AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge.HumanForceChallengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Humanforce iOS Engineering Challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Humanforce iOS Engineering Challenge";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,6 +676,15 @@
 			buildConfigurations = (
 				A5C4331D2D20E29200EB49AF /* Debug */,
 				A5C4331E2D20E29200EB49AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5C433A62D218DF300EB49AF /* Build configuration list for PBXNativeTarget "HumanForceChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5C433A72D218DF300EB49AF /* Debug */,
+				A5C433A82D218DF300EB49AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -23,12 +23,12 @@ extension FiveDayForecast {
     func aggregatedForecasts() -> [DailyForecast] {
         let timezoneOffset = city.timezone
         let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: timezoneOffset)
         var dailyTemps: [String: (min: Double, max: Double)] = [:]
         for record in list {
-            let adjustedDate = Date(timeIntervalSince1970: TimeInterval(record.dt + timezoneOffset))
-            let dayString = dateFormatter.string(from: adjustedDate)
+            let utcDate = Date(timeIntervalSince1970: TimeInterval(record.dt))
+            let dayString = dateFormatter.string(from: utcDate)
             
             if let currentTemps = dailyTemps[dayString] {
                 dailyTemps[dayString] = (
