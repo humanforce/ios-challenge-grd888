@@ -21,7 +21,7 @@ typealias SearchResults = [Location]
 
 extension Location {
     static var mock: Location {
-        .init(name: "Mock Location in the Philippines", lat: 40.7127, lon: -73.998, country: "United States", state: "New York")
+        .init(name: "New York City", lat: 40.7127, lon: -73.998, country: "United States", state: "New York")
     }
     
     var stateCountry: String? {
@@ -39,16 +39,15 @@ extension Location {
 }
 
 extension Location {
-    static let userDefaultsKey = "CurrentLocation"
-    
     func saveToDefaults() {
         if let data = try? JSONEncoder().encode(self) {
-            UserDefaults.standard.set(data, forKey: Location.userDefaultsKey)
+            UserDefaults.shared.set(data, forKey: UserDefaults.Keys.currentLocation)
         }
     }
     
     static func loadFromDefaults() -> Location? {
-        if let data = UserDefaults.standard.data(forKey: userDefaultsKey),
+        if let data = UserDefaults.shared.data(
+            forKey: UserDefaults.Keys.currentLocation),
            let location = try? JSONDecoder().decode(Location.self, from: data) {
             return location
         }

@@ -38,4 +38,27 @@ extension CurrentWeather {
             cod: 200
         )
     }
+    
+    func saveToDefaults() {
+        if let data = try? JSONEncoder().encode(self) {
+            UserDefaults.shared.set(data, forKey: UserDefaults.Keys.currentWeather)
+        }
+    }
+    
+    static func loadFromDefaults() -> CurrentWeather? {
+        if let data = UserDefaults.shared.data(forKey: UserDefaults.Keys.currentWeather),
+           let currentWeather = try? JSONDecoder().decode(CurrentWeather.self, from: data)
+        {
+            return currentWeather
+        }
+        return nil
+    }
+    
+    var weatherIcon: String {
+        return weather.first?.icon ?? ""
+    }
+    
+    var mainDescription: String {
+        return weather.first?.main ?? ""
+    }
 }

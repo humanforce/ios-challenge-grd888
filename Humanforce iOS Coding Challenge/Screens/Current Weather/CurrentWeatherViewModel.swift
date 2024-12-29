@@ -8,20 +8,32 @@
 import Foundation
 import Combine
 import CoreLocation
+import WidgetKit
 
 @MainActor
 class CurrentWeatherViewModel: ObservableObject {
-    @Published var currentLocation: Location?
+    @Published var currentLocation: Location? {
+        didSet {
+            currentLocation?.saveToDefaults()
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
     @Published var favoriteLocations: [Location] = [] {
         didSet {
             saveFavoriteLocations()
         }
     }
-    @Published var currentWeather: CurrentWeather?
+    @Published var currentWeather: CurrentWeather? {
+        didSet {
+            currentWeather?.saveToDefaults()
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
     @Published var fiveDayForecast: [DailyForecast] = []
     @Published var currentTemperatureUnit: TemperatureUnit {
         didSet {
             currentTemperatureUnit.saveToDefaults()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     @Published var searchResults: [Location] = []
@@ -56,8 +68,8 @@ class CurrentWeatherViewModel: ObservableObject {
     }
     var temperature: String {
         guard let currentWeather else { return "---" }
-        let temp = String(format: "%.1f", currentWeather.main.temp) 
-        return "\(temp)\(currentTemperatureUnit.symbol)"
+        let temp = currentWeather.main.temp.roundedToInt()
+        return "\(temp) \(currentTemperatureUnit.symbol)"
     }
     var mainDescription: String {
         guard let currentWeather else { return "---" }

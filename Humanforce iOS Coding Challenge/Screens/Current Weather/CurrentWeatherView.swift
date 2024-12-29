@@ -142,6 +142,7 @@ struct CurrentWeatherView: View {
         Text(animatedTemperature)
             .font(.system(size: 84))
             .fontWeight(.thin)
+            .contentTransition(.numericText())
     }
     
     private var forecastButton: some View {

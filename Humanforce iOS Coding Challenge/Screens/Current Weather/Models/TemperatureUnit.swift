@@ -28,10 +28,8 @@ enum TemperatureUnit: String, CaseIterable {
         }
     }
     
-    static let userDefaultsKey = "TemperatureUnit"
-        
     static func loadFromDefaults() -> TemperatureUnit {
-        if let savedValue = UserDefaults.standard.string(forKey: userDefaultsKey),
+        if let savedValue = UserDefaults.shared.string(forKey: UserDefaults.Keys.temperatureUnit),
            let unit = TemperatureUnit(rawValue: savedValue) {
             return unit
         }
@@ -39,6 +37,6 @@ enum TemperatureUnit: String, CaseIterable {
     }
     
     func saveToDefaults() {
-        UserDefaults.standard.set(self.rawValue, forKey: TemperatureUnit.userDefaultsKey)
+        UserDefaults.shared.set(self.rawValue, forKey: UserDefaults.Keys.temperatureUnit)
     }
 }
