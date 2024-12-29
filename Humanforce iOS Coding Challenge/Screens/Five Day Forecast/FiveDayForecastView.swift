@@ -11,6 +11,7 @@ struct FiveDayForecastView: View {
     @EnvironmentObject var viewModel: CurrentWeatherViewModel
     
     var forecasts: [DailyForecast] = []
+    var formatter = DateFormatter()
     
     var body: some View {
         ScrollView {
@@ -34,17 +35,17 @@ struct FiveDayForecastView: View {
     @ViewBuilder
     func forecastRow(for forecast: DailyForecast, symbol: String) -> some View {
         HStack {
-            Text(forecast.date)
+            Text(formatDateString(forecast.date))
                 .font(.headline)
             
             Spacer()
             
             VStack {
-                Text("Min: \(String(format: "%.1f", forecast.minTemp))\(symbol)")
+                Text("L: \(forecast.minTemp.roundedToInt()) \(symbol)")
                     .font(.subheadline)
                     .foregroundColor(.blue)
                 
-                Text("Max: \(String(format: "%.1f", forecast.maxTemp))\(symbol)")
+                Text("H: \(forecast.maxTemp.roundedToInt()) \(symbol)")
                     .font(.subheadline)
                     .foregroundColor(.red)
             }
@@ -55,6 +56,20 @@ struct FiveDayForecastView: View {
                 .fill(Color(UIColor.systemGray6))
         )
         .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
+    }
+    
+    private func formatDateString(_ dateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+//        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "E - MMM d"
+//        outputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        let date = inputFormatter.date(from: dateString) ?? Date()
+        
+        return outputFormatter.string(from: date)
     }
 }
 

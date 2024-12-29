@@ -28,8 +28,8 @@ struct CurrentWeatherView: View {
                     
                     currentTemperature
                     
-                    CloudInfo(
-                        description: viewModel.mainDescription,
+                    cloudInfo(
+                        with: viewModel.mainDescription,
                         icon: viewModel.weatherIcon
                     )
                     
@@ -47,22 +47,8 @@ struct CurrentWeatherView: View {
                 .sheet(isPresented: $showFavorites) {
                     FavoriteLocationsView()
                 }
-                .alert(item: $activeAlert) { alert in
-                    switch alert {
-                    case .error:
-                        return Alert(title: Text("Error"), message: Text(alert.message))
-                    case .authorization:
-                        return Alert(
-                            title: Text("Location Services Disabled"),
-                            message: Text(alert.message),
-                            primaryButton: .default(Text("Go to Settings")) {
-                                if let url = URL(string: UIApplication.openSettingsURLString) {
-                                    UIApplication.shared.open(url)
-                                }
-                            },
-                            secondaryButton: .cancel(Text("Dismiss"))
-                        )
-                    }
+                .alert(item: $activeAlert) { alertType in
+                    alert(for: alertType)
                 }
                 .onChange(of: viewModel.errorMessage) { _, message in
                     if let message {
@@ -160,6 +146,53 @@ struct CurrentWeatherView: View {
             Label("", systemImage: "arrow.clockwise.circle.fill")
                 .font(.title)
                 .padding()
+        }
+    }
+    
+    func cloudInfo(with description: String, icon: String) -> some View {
+        VStack(spacing: 0) {
+            if !icon.isEmpty {
+                Image(icon)
+                    .resizable()
+                    .frame(width: 50, height: 50)
+            }
+            
+            Text(description)
+                .font(.title2)
+                .foregroundStyle(Color.primary)
+                .padding(.bottom, 16)
+        }
+        .frame(maxWidth: .infinity)
+        .background(
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color(.lightBlueStart),
+                            Color(.lightBlueEnd)
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(color: Color.primary.opacity(0.2), radius: 5, x: 0, y: 5)
+                .padding(30)
+    }
+    
+    private func alert(for alertType: AlertType) -> Alert {
+        switch alertType {
+        case .error:
+            return Alert(title: Text("Error"), message: Text(alertType.message))
+        case .authorization:
+            return Alert(
+                title: Text("Location Services Disabled"),
+                message: Text(alertType.message),
+                primaryButton: .default(Text("Go to Settings")) {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                },
+                secondaryButton: .cancel(Text("Dismiss"))
+            )
         }
     }
 }
