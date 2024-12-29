@@ -78,7 +78,12 @@ class CurrentWeatherViewModel: ObservableObject {
     var weatherIcon: String {
         return currentWeather?.weather.first?.icon ?? ""
     }
-    
+    var humidity: String {
+        "\(currentWeather?.main.humidity ?? 0) %"
+    }
+    var feelsLike: String {
+        "\(currentWeather?.main.feelsLike.roundedToInt() ?? 0) \(currentTemperatureUnit.symbol)"
+    }
     private let weatherService = WeatherService(httpClient: NetworkManager.shared)
     private var locationManager: LocationManager
     private var cancellables = Set<AnyCancellable>()

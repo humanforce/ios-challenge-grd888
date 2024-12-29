@@ -39,7 +39,7 @@ struct CurrentWeatherView: View {
                     
                     refreshButton
                 }
-                .padding(.top, 40)
+                .padding(.vertical, 40)
                 .padding(.horizontal, 20)
                 .sheet(isPresented: $showSearch) {
                     LocationSearchView()
@@ -145,7 +145,6 @@ struct CurrentWeatherView: View {
         }) {
             Label("", systemImage: "arrow.clockwise.circle.fill")
                 .font(.title)
-                .padding()
         }
     }
     
@@ -154,28 +153,27 @@ struct CurrentWeatherView: View {
             if !icon.isEmpty {
                 Image(icon)
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 120, height: 120)
             }
             
             Text(description)
                 .font(.title2)
                 .foregroundStyle(Color.primary)
-                .padding(.bottom, 16)
+                .padding(.bottom)
+            
+            HStack {
+                Text("Humidity:")
+                Text(viewModel.humidity)
+            }
+            .padding(.bottom, 4)
+            HStack {
+                Text("Feels like::")
+                Text(viewModel.feelsLike)
+            }
+            .padding(.bottom)
         }
         .frame(maxWidth: .infinity)
-        .background(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(.lightBlueStart),
-                            Color(.lightBlueEnd)
-                        ]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .shadow(color: Color.primary.opacity(0.2), radius: 5, x: 0, y: 5)
-                .padding(30)
+        .padding()
     }
     
     private func alert(for alertType: AlertType) -> Alert {
