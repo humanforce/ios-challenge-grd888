@@ -20,6 +20,26 @@ struct FiveDayForecast: Codable {
 }
 
 extension FiveDayForecast {
+    /// Aggregates the daily weather forecasts by calculating the minimum and maximum temperatures for each day.
+    ///
+    /// The function adjusts the UTC timestamps of the forecast records using the `timezone` offset from the `city` property.
+    /// It then groups the records by their local date and computes the daily minimum and maximum temperatures.
+    ///
+    /// - Returns: A sorted array of `DailyForecast` objects, where each object represents the aggregated forecast for a single day.
+    ///            The `date` property is formatted as "yyyy-MM-dd" in the city's local timezone, and the `minTemp` and `maxTemp`
+    ///            represent the lowest and highest temperatures for that day.
+    ///
+    /// Example:
+    /// ```swift
+    /// let forecasts = fiveDayForecast.aggregatedForecasts()
+    /// for forecast in forecasts {
+    ///     print("Date: \(forecast.date), Min Temp: \(forecast.minTemp), Max Temp: \(forecast.maxTemp)")
+    /// }
+    /// ```
+    ///
+    /// - Complexity: O(n), where `n` is the number of forecast records in the `list`.
+    ///
+    /// - Note: This function relies on the `timezone` property of the `city` to accurately calculate the local date.
     func aggregatedForecasts() -> [DailyForecast] {
         let timezoneOffset = city.timezone
         let dateFormatter = DateFormatter()
