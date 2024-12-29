@@ -10,7 +10,27 @@
 		73B3280F2CFD538500D47D03 /* .env.example in Resources */ = {isa = PBXBuildFile; fileRef = 73B3280E2CFD538100D47D03 /* .env.example */; };
 		73B3281A2CFD60D100D47D03 /* .env in Copy .env file */ = {isa = PBXBuildFile; fileRef = 73B328192CFD60D100D47D03 /* .env */; };
 		73B3281E2CFD693100D47D03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 73B3281D2CFD693100D47D03 /* README.md */; };
+		A5C4330E2D20E29000EB49AF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C4330D2D20E29000EB49AF /* WidgetKit.framework */; };
+		A5C433102D20E29000EB49AF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C4330F2D20E29000EB49AF /* SwiftUI.framework */; };
+		A5C4331B2D20E29200EB49AF /* HFWeatherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A5C4330B2D20E29000EB49AF /* HFWeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5C433192D20E29200EB49AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73B327F32CFD284C00D47D03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5C4330A2D20E29000EB49AF;
+			remoteInfo = HFWeatherWidgetExtension;
+		};
+		A5C433A42D218DF300EB49AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73B327F32CFD284C00D47D03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73B327FA2CFD284C00D47D03;
+			remoteInfo = "Humanforce iOS Engineering Challenge";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		73B328132CFD5FC100D47D03 /* Copy .env file */ = {
@@ -24,6 +44,17 @@
 			name = "Copy .env file";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C4331C2D20E29200EB49AF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A5C4331B2D20E29200EB49AF /* HFWeatherWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +62,61 @@
 		73B3280E2CFD538100D47D03 /* .env.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.example; sourceTree = "<group>"; };
 		73B328192CFD60D100D47D03 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		73B3281D2CFD693100D47D03 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A5C4330B2D20E29000EB49AF /* HFWeatherWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HFWeatherWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C4330D2D20E29000EB49AF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A5C4330F2D20E29000EB49AF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A5C433212D212FBC00EB49AF /* Humanforce iOS Engineering Challenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Humanforce iOS Engineering Challenge.entitlements"; sourceTree = "<group>"; };
+		A5C433222D21302400EB49AF /* HFWeatherWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HFWeatherWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A5C433A02D218DF300EB49AF /* HumanForceChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HumanForceChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A5C4331F2D20E29200EB49AF /* Exceptions for "HFWeatherWidget" folder in "HFWeatherWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */;
+		};
+		A5C433262D21315000EB49AF /* Exceptions for "Humanforce iOS Coding Challenge" folder in "HFWeatherWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Assets.xcassets,
+				"Screens/Current Weather/Models/Clouds.swift",
+				"Screens/Current Weather/Models/Coord.swift",
+				"Screens/Current Weather/Models/CurrentWeather.swift",
+				"Screens/Current Weather/Models/Main.swift",
+				"Screens/Current Weather/Models/TemperatureUnit.swift",
+				"Screens/Current Weather/Models/Weather.swift",
+				"Screens/Current Weather/Models/Wind.swift",
+				Screens/Search/Location.swift,
+				"Utilities/Extensions/Double+Extension.swift",
+				"Utilities/Extensions/UserDefaults+Extensions.swift",
+			);
+			target = A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		73B327FD2CFD284C00D47D03 /* Humanforce iOS Coding Challenge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5C433262D21315000EB49AF /* Exceptions for "Humanforce iOS Coding Challenge" folder in "HFWeatherWidgetExtension" target */,
+			);
 			path = "Humanforce iOS Coding Challenge";
+			sourceTree = "<group>";
+		};
+		A5C433112D20E29000EB49AF /* HFWeatherWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5C4331F2D20E29200EB49AF /* Exceptions for "HFWeatherWidget" folder in "HFWeatherWidgetExtension" target */,
+			);
+			path = HFWeatherWidget;
+			sourceTree = "<group>";
+		};
+		A5C433A12D218DF300EB49AF /* HumanForceChallengeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HumanForceChallengeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -49,13 +129,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C433082D20E29000EB49AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C433102D20E29000EB49AF /* SwiftUI.framework in Frameworks */,
+				A5C4330E2D20E29000EB49AF /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5C4339D2D218DF300EB49AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		73B327F22CFD284C00D47D03 = {
 			isa = PBXGroup;
 			children = (
+				A5C433222D21302400EB49AF /* HFWeatherWidgetExtension.entitlements */,
+				A5C433212D212FBC00EB49AF /* Humanforce iOS Engineering Challenge.entitlements */,
 				73B327FD2CFD284C00D47D03 /* Humanforce iOS Coding Challenge */,
+				A5C433112D20E29000EB49AF /* HFWeatherWidget */,
+				A5C433A12D218DF300EB49AF /* HumanForceChallengeTests */,
+				A5C4330C2D20E29000EB49AF /* Frameworks */,
 				73B327FC2CFD284C00D47D03 /* Products */,
 				73B3280E2CFD538100D47D03 /* .env.example */,
 				73B328192CFD60D100D47D03 /* .env */,
@@ -67,8 +168,19 @@
 			isa = PBXGroup;
 			children = (
 				73B327FB2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge.app */,
+				A5C4330B2D20E29000EB49AF /* HFWeatherWidgetExtension.appex */,
+				A5C433A02D218DF300EB49AF /* HumanForceChallengeTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A5C4330C2D20E29000EB49AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5C4330D2D20E29000EB49AF /* WidgetKit.framework */,
+				A5C4330F2D20E29000EB49AF /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,10 +194,12 @@
 				73B327F72CFD284C00D47D03 /* Sources */,
 				73B327F82CFD284C00D47D03 /* Frameworks */,
 				73B327F92CFD284C00D47D03 /* Resources */,
+				A5C4331C2D20E29200EB49AF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A5C4331A2D20E29200EB49AF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				73B327FD2CFD284C00D47D03 /* Humanforce iOS Coding Challenge */,
@@ -97,6 +211,51 @@
 			productReference = 73B327FB2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5C433202D20E29200EB49AF /* Build configuration list for PBXNativeTarget "HFWeatherWidgetExtension" */;
+			buildPhases = (
+				A5C433072D20E29000EB49AF /* Sources */,
+				A5C433082D20E29000EB49AF /* Frameworks */,
+				A5C433092D20E29000EB49AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A5C433112D20E29000EB49AF /* HFWeatherWidget */,
+			);
+			name = HFWeatherWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HFWeatherWidgetExtension;
+			productReference = A5C4330B2D20E29000EB49AF /* HFWeatherWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A5C4339F2D218DF300EB49AF /* HumanForceChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5C433A62D218DF300EB49AF /* Build configuration list for PBXNativeTarget "HumanForceChallengeTests" */;
+			buildPhases = (
+				A5C4339C2D218DF300EB49AF /* Sources */,
+				A5C4339D2D218DF300EB49AF /* Frameworks */,
+				A5C4339E2D218DF300EB49AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5C433A52D218DF300EB49AF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A5C433A12D218DF300EB49AF /* HumanForceChallengeTests */,
+			);
+			name = HumanForceChallengeTests;
+			packageProductDependencies = (
+			);
+			productName = HumanForceChallengeTests;
+			productReference = A5C433A02D218DF300EB49AF /* HumanForceChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,11 +263,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1610;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					73B327FA2CFD284C00D47D03 = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					A5C4330A2D20E29000EB49AF = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					A5C4339F2D218DF300EB49AF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 73B327FA2CFD284C00D47D03;
 					};
 				};
 			};
@@ -127,6 +293,8 @@
 			projectRoot = "";
 			targets = (
 				73B327FA2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge */,
+				A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */,
+				A5C4339F2D218DF300EB49AF /* HumanForceChallengeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +309,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C433092D20E29000EB49AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5C4339E2D218DF300EB49AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -151,7 +333,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C433072D20E29000EB49AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5C4339C2D218DF300EB49AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5C4331A2D20E29200EB49AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5C4330A2D20E29000EB49AF /* HFWeatherWidgetExtension */;
+			targetProxy = A5C433192D20E29200EB49AF /* PBXContainerItemProxy */;
+		};
+		A5C433A52D218DF300EB49AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73B327FA2CFD284C00D47D03 /* Humanforce iOS Engineering Challenge */;
+			targetProxy = A5C433A42D218DF300EB49AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		73B328072CFD284D00D47D03 /* Debug */ = {
@@ -278,18 +487,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Humanforce iOS Engineering Challenge.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Humanforce iOS Coding Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide you with weather updates.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide you with weather updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide you with weather updates.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,9 +513,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,18 +528,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Humanforce iOS Engineering Challenge.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Humanforce iOS Coding Challenge/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to provide you with weather updates.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide you with weather updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide you with weather updates.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,9 +554,127 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A5C4331D2D20E29200EB49AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HFWeatherWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HFWeatherWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HFWeatherWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge.HFWeatherWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A5C4331E2D20E29200EB49AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HFWeatherWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HFWeatherWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HFWeatherWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge.HFWeatherWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A5C433A72D218DF300EB49AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge.HumanForceChallengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Humanforce iOS Engineering Challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Humanforce iOS Engineering Challenge";
+			};
+			name = Debug;
+		};
+		A5C433A82D218DF300EB49AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CZHT3BTCGY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.humanforce.Humanforce-iOS-Coding-Challenge.HumanForceChallengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Humanforce iOS Engineering Challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Humanforce iOS Engineering Challenge";
 			};
 			name = Release;
 		};
@@ -352,6 +695,24 @@
 			buildConfigurations = (
 				73B3280A2CFD284D00D47D03 /* Debug */,
 				73B3280B2CFD284D00D47D03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5C433202D20E29200EB49AF /* Build configuration list for PBXNativeTarget "HFWeatherWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5C4331D2D20E29200EB49AF /* Debug */,
+				A5C4331E2D20E29200EB49AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5C433A62D218DF300EB49AF /* Build configuration list for PBXNativeTarget "HumanForceChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5C433A72D218DF300EB49AF /* Debug */,
+				A5C433A82D218DF300EB49AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
