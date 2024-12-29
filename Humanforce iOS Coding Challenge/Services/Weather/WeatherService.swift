@@ -14,7 +14,7 @@ enum OpenWeatherMapUrl {
     static let geoBase = "https://api.openweathermap.org/geo/1.0"
 }
 
-final class WeatherService {
+final class WeatherService: WeatherProvider {
     private let apiKey = APIKeyManager.weatherAPIKey
 
     private let httpClient: HTTPClient

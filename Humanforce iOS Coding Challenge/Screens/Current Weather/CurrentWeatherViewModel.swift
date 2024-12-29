@@ -42,8 +42,13 @@ class CurrentWeatherViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var didPerformSearch = false
     
-    init(locationManager: LocationManager = LocationManager(), location: Location? = nil, weather: CurrentWeather? = nil) {
+    init(locationManager: LocationManager = LocationManager(),
+         weatherProvider: WeatherProvider = WeatherService(
+            httpClient: NetworkManager.shared),
+         location: Location? = nil,
+         weather: CurrentWeather? = nil) {
         self.locationManager = locationManager
+        self.weatherProvider = weatherProvider
         self.currentLocation = location
         self.currentWeather = weather
         self.currentTemperatureUnit = TemperatureUnit.loadFromDefaults()
@@ -84,8 +89,8 @@ class CurrentWeatherViewModel: ObservableObject {
     var feelsLike: String {
         "\(currentWeather?.main.feelsLike.roundedToInt() ?? 0) \(currentTemperatureUnit.symbol)"
     }
-    private let weatherService = WeatherService(httpClient: NetworkManager.shared)
-    private var locationManager: LocationManager
+    private let weatherProvider: WeatherProvider
+    private let locationManager: LocationManager
     private var cancellables = Set<AnyCancellable>()
     
     func fetchWeatherData() {
@@ -96,10 +101,10 @@ class CurrentWeatherViewModel: ObservableObject {
         let unit = currentTemperatureUnit
         
         let currentWeatherPublisher =
-            weatherService.fetchCurrentWeather(lat: lat, lon: lon, unit: unit)
+        weatherProvider.fetchCurrentWeather(lat: lat, lon: lon, unit: unit)
         
         let fiveDayForecastPublisher =
-            weatherService.fetch5DayForecast(lat: lat, lon: lon, unit: unit)
+        weatherProvider.fetch5DayForecast(lat: lat, lon: lon, unit: unit)
                 .map { $0.aggregatedForecasts() }
 
         isLoading = true
@@ -121,7 +126,7 @@ class CurrentWeatherViewModel: ObservableObject {
         guard !name.isEmpty else { return }
         isLoading = true
         didPerformSearch = false
-        weatherService.fetchCoordinates(for: name)
+        weatherProvider.fetchCoordinates(for: name)
             .sink { [weak self] completion in
                 guard let self else { return }
                 self.isLoading = false
@@ -167,7 +172,7 @@ class CurrentWeatherViewModel: ObservableObject {
                 }
                 let lat = location.coordinate.latitude
                 let lon = location.coordinate.longitude
-                return self.weatherService.fetchLocation(lat: lat, lon: lon)
+                return self.weatherProvider.fetchLocation(lat: lat, lon: lon)
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
