@@ -20,7 +20,7 @@ class CurrentWeatherViewModel: ObservableObject {
     }
     @Published var favoriteLocations: [Location] = [] {
         didSet {
-            saveFavoriteLocations()
+            Location.saveFavoriteLocations(favoriteLocations)
         }
     }
     @Published var currentWeather: CurrentWeather? {
@@ -47,7 +47,7 @@ class CurrentWeatherViewModel: ObservableObject {
         self.currentLocation = location
         self.currentWeather = weather
         self.currentTemperatureUnit = TemperatureUnit.loadFromDefaults()
-        self.favoriteLocations = Self.loadFavoriteLocations()
+        self.favoriteLocations = Location.loadFavoriteLocations()
         
         observeLocation()
         observeAuthorizationStatus()
@@ -95,9 +95,8 @@ class CurrentWeatherViewModel: ObservableObject {
         
         let fiveDayForecastPublisher =
             weatherService.fetch5DayForecast(lat: lat, lon: lon, unit: unit)
-                .map { forecast -> [DailyForecast] in
-                    return self.aggregateDailyForecast(from: forecast.list)
-                }
+                .map { $0.aggregatedForecasts() }
+
         isLoading = true
         currentWeatherPublisher.zip(fiveDayForecastPublisher)
             .sink(receiveCompletion: { [weak self] completion in
@@ -210,35 +209,6 @@ class CurrentWeatherViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-    }
-    
-    private func saveFavoriteLocations() {
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(favoriteLocations) {
-            UserDefaults.standard.set(encoded, forKey: "favoriteLocations")
-        }
-    }
-    
-    private static func loadFavoriteLocations() -> [Location] {
-        let decoder = JSONDecoder()
-        if let data = UserDefaults.standard.data(forKey: "favoriteLocations"),
-           let locations = try? decoder.decode([Location].self, from: data) {
-            return locations
-        }
-        return []
-    }
-    
-    private func aggregateDailyForecast(from list: [Forecast]) -> [DailyForecast] {
-        let grouped = Dictionary(grouping: list) { entry -> String in
-            let date = entry.dtTxt.split(separator: " ")[0]
-            return String(date)
-        }
-
-        return grouped.map { (key, entries) in
-            let minTemp = entries.min(by: { $0.main.tempMin < $1.main.tempMin })?.main.tempMin ?? 0
-            let maxTemp = entries.max(by: { $0.main.tempMax < $1.main.tempMax })?.main.tempMax ?? 0
-            return DailyForecast(date: key, minTemp: minTemp, maxTemp: maxTemp)
-        }.sorted(by: { $0.date < $1.date })
     }
     
     private func handleError(error: Error) {

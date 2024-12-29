@@ -17,8 +17,6 @@ struct Location: Codable, Identifiable, Equatable {
     }
 }
 
-typealias SearchResults = [Location]
-
 extension Location {
     static var mock: Location {
         .init(name: "New York City", lat: 40.7127, lon: -73.998, country: "United States", state: "New York")
@@ -52,5 +50,21 @@ extension Location {
             return location
         }
         return nil
+    }
+    
+    static func saveFavoriteLocations(_ locations: [Location]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(locations) {
+            UserDefaults.standard.set(encoded, forKey: "favoriteLocations")
+        }
+    }
+    
+    static func loadFavoriteLocations() -> [Location] {
+        let decoder = JSONDecoder()
+        if let data = UserDefaults.standard.data(forKey: "favoriteLocations"),
+           let locations = try? decoder.decode([Location].self, from: data) {
+            return locations
+        }
+        return []
     }
 }
