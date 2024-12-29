@@ -9,9 +9,12 @@ import Foundation
 import Combine
 import os
 
+enum OpenWeatherMapUrl {
+    static let dataBase = "https://api.openweathermap.org/data/2.5"
+    static let geoBase = "https://api.openweathermap.org/geo/1.0"
+}
+
 final class WeatherService {
-    private let baseURL = "https://api.openweathermap.org/data/2.5"
-    private let geoBaseURL = "https://api.openweathermap.org/geo/1.0"
     private let apiKey = APIKeyManager.weatherAPIKey
 
     private let httpClient: HTTPClient
@@ -21,7 +24,7 @@ final class WeatherService {
     }
     
     func fetchCurrentWeather(lat: Double, lon: Double, unit: TemperatureUnit) -> AnyPublisher<CurrentWeather, Error> {
-        let endpoint = "\(baseURL)/weather"
+        let endpoint = "\(OpenWeatherMapUrl.dataBase)/weather"
         let parameters = [
             "lat": "\(lat)",
             "lon": "\(lon)",
@@ -39,7 +42,7 @@ final class WeatherService {
     }
 
     func fetch5DayForecast(lat: Double, lon: Double, unit: TemperatureUnit) -> AnyPublisher<FiveDayForecast, Error> {
-        let endpoint = "\(baseURL)/forecast"
+        let endpoint = "\(OpenWeatherMapUrl.dataBase)/forecast"
         let parameters = [
             "lat": "\(lat)",
             "lon": "\(lon)",
@@ -57,7 +60,7 @@ final class WeatherService {
     }
 
     func fetchCoordinates(for cityName: String) -> AnyPublisher<[Location], Error> {
-        let endpoint = "\(geoBaseURL)/direct"
+        let endpoint = "\(OpenWeatherMapUrl.geoBase)/direct"
         let parameters = [
             "q": cityName,
             "limit": "5",
@@ -74,7 +77,7 @@ final class WeatherService {
     }
     
     func fetchLocation(lat: Double, lon: Double) -> AnyPublisher<[Location], Error> {
-        let endpoint = "\(geoBaseURL)/reverse"
+        let endpoint = "\(OpenWeatherMapUrl.geoBase)/reverse"
         let parameters = [
             "lat": String(lat),
             "lon": String(lon),
